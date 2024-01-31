@@ -25,6 +25,12 @@ body {
     border: 1px solid #000000;
     position: relative;
 }
+.darker-cell {
+    background-color: #d1d1d1;
+}
+.lighter-cell {
+    background-color: #dcdcdc;
+}
 
 .snake-head,
 .snake-body,
@@ -42,11 +48,8 @@ body {
 }
 
 .apple {
-    background-color: green;
+    background-color: #33cc33;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .score {
