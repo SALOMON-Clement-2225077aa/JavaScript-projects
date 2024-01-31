@@ -1,8 +1,38 @@
-    // ---------------------------------------
-    // |              VARIABLES              |
-    // ---------------------------------------
-    let apple = [];
-    let snake = [[14,4],[14,5],[14,6]];
+// TODO :
+// - dégradé du serpent de la tête à la queue
+
+// ---------------------------------------
+// |              VARIABLES              |
+// ---------------------------------------
+let apple = [];
+let snake = [[14,4],[14,5],[14,6]];
+let direction = "R";
+
+// --------------------------------------
+// |          EVENT LISTENERS           |
+// --------------------------------------
+document.addEventListener("keydown", function (event) {
+    const labelDirection = document.getElementById("direction");
+    switch (event.key) {
+        case "ArrowUp":
+            labelDirection.textContent="U";
+            direction="U";
+            break;
+        case "ArrowDown":
+            labelDirection.textContent="D";
+            direction="D";
+            break;
+        case "ArrowLeft":
+            labelDirection.textContent="L";
+            direction="L";
+            break;
+        case "ArrowRight":
+            labelDirection.textContent="R";
+            direction="R";
+            break;
+    }
+});
+
 
 document.addEventListener("DOMContentLoaded", function () {
     // ----------------------------------------
@@ -11,6 +41,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const grid = document.querySelector(".grid");
     console.log(grid);
     createGrid();
+    for (let i = 0; i < snake.length; i++) {
+        const SnakeCell = document.getElementById("cell-" + snake[i][0] + "-" + snake[i][1]);
+        if (i == snake.length - 1) {
+            SnakeCell.classList.add("snake-head");
+        } else {
+            SnakeCell.classList.add("snake-body");
+        }
+    }
 
     // ---------------------------------------
     // |              FUNCTIONS              |
@@ -41,5 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
             previousApple.classList.remove("apple");
         }
         apple = [randomRow, randomCol];
+        const score = document.getElementById("score");
+        score.textContent = (snake.length - 3).toString();
     }
+
 
