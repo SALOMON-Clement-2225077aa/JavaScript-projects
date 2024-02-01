@@ -83,4 +83,19 @@ document.addEventListener("DOMContentLoaded", function () {
         score.textContent = (snake.length - 3).toString();
     }
 
+    function move(direction) {
+        if(direction == "U") {
+
+        }
+        else if(direction == "D") {
+
+        }
+        else if(direction == "L") {
+
+        }
+        else if(direction == "R") {
+
+        }
+    }
+
 

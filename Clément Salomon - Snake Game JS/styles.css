@@ -27,26 +27,28 @@ body {
 }
 .darker-cell {
     background-color: #d1d1d1;
+    z-index: 0;
 }
 .lighter-cell {
     background-color: #dcdcdc;
-}
-
-.apple {
-    width: 30px;
-    height: 30px;
-}
-
-.snake-body {
-    background-color: darkred;
-}
-.snake-head {
-    background-color: #fe0001;
+    z-index: 0;
 }
 
 .apple {
     background-color: #33cc33;
     border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    z-index: 2;
+}
+
+.snake-body {
+    background-color: darkred;
+    z-index: 2;
+}
+.snake-head {
+    background-color: #fe0001;
+    z-index: 2;
 }
 
 #score {
