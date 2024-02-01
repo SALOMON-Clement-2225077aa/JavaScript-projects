@@ -6,7 +6,7 @@ for (let i = 0; i < 20; i++) {
 }
 console.log(tableau);
 
-
+// 3)
 let index = 0;
 function displayNextValue() {
     if (index < tableau.length) {
@@ -15,3 +15,5 @@ function displayNextValue() {
         setTimeout(displayNextValue, 2000);
     }
 }
+
+displayNextValue();
