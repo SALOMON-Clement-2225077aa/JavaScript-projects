@@ -5,8 +5,9 @@
 // |              VARIABLES              |
 // ---------------------------------------
 let apple = [];
-let snake = [[14,4],[14,5],[14,6]];
+let snake = [[14, 4], [14, 5], [14, 6]];
 let direction = "R";
+let gameInterval;
 
 // --------------------------------------
 // |          EVENT LISTENERS           |
@@ -15,40 +16,37 @@ document.addEventListener("keydown", function (event) {
     const labelDirection = document.getElementById("direction");
     switch (event.key) {
         case "ArrowUp":
-            labelDirection.textContent="U";
-            direction="U";
+            if(direction!="D"){
+                direction = "U";
+            }
             break;
         case "ArrowDown":
-            labelDirection.textContent="D";
-            direction="D";
+            if(direction!="U") {
+                direction = "D";
+            }
             break;
         case "ArrowLeft":
-            labelDirection.textContent="L";
-            direction="L";
+            if(direction!="R") {
+                direction = "L";
+            }
             break;
         case "ArrowRight":
-            labelDirection.textContent="R";
-            direction="R";
+            if(direction!="L") {
+                direction = "R";
+            }
             break;
     }
 });
-
 
 document.addEventListener("DOMContentLoaded", function () {
     // ----------------------------------------
     // |                 MAIN                 |
     // ----------------------------------------
     const grid = document.querySelector(".grid");
-    console.log(grid);
     createGrid();
-    for (let i = 0; i < snake.length; i++) {
-        const SnakeCell = document.getElementById("cell-" + snake[i][0] + "-" + snake[i][1]);
-        if (i == snake.length - 1) {
-            SnakeCell.classList.add("snake-head");
-        } else {
-            SnakeCell.classList.add("snake-body");
-        }
-    }
+    rdApple();
+    gameInterval = setInterval(gameLoop, 75);
+
 
     // ---------------------------------------
     // |              FUNCTIONS              |
@@ -67,7 +65,31 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
-});
+
+    function displaySnake() {
+        // Remove previous snake cells
+        const snakeCells = document.querySelectorAll(".snake-body, .snake-head");
+        snakeCells.forEach(cell => cell.classList.remove("snake-body", "snake-head"));
+
+        // Reset background color for all cells
+        const allCells = document.querySelectorAll(".grid div");
+        allCells.forEach(cell => cell.style.backgroundColor = "");
+
+        // Display new snake cells with gradient color
+        for (let i = 0; i < snake.length; i++) {
+            const SnakeCell = document.getElementById("cell-" + snake[i][0] + "-" + snake[i][1]);
+            if (i == snake.length - 1) {
+                SnakeCell.classList.add("snake-head");
+            } else {
+                // Calculate gradient color based on position in the snake
+                const gradientValue = Math.floor((i / snake.length) * 255);
+                const color = `rgb(${gradientValue}, 0, ${255 - gradientValue})`;
+                SnakeCell.style.backgroundColor = color;
+                SnakeCell.classList.add("snake-body");
+            }
+        }
+    }
+
 
     function rdApple() {
         const randomRow = Math.floor(Math.random() * 20);
@@ -83,19 +105,50 @@ document.addEventListener("DOMContentLoaded", function () {
         score.textContent = (snake.length - 3).toString();
     }
 
-    function move(direction) {
-        if(direction == "U") {
-
+    function moveSnake() {
+        const head = [...snake[snake.length - 1]];
+        switch (direction) {
+            case "U":
+                head[0] = (head[0] - 1);
+                break;
+            case "D":
+                head[0] = (head[0] + 1);
+                break;
+            case "L":
+                head[1] = (head[1] - 1);
+                break;
+            case "R":
+                head[1] = (head[1] + 1);
+                break;
         }
-        else if(direction == "D") {
 
+        // Check for collision with self or edges
+        if (snake.some(cell => cell[0] === head[0] && cell[1] === head[1])) {
+            clearInterval(gameInterval);
+            alert("Game Over! Vous avez cogné votre corp.");
+            return;
         }
-        else if(direction == "L") {
+        if(head[0] >= 20 || head[1] >= 30 || head[0] < 0 || head[1] < 0) {
+            clearInterval(gameInterval);
+            alert("Game Over! Vous avez foncé dans un mur.");
+            return;
+        }
 
-        }
-        else if(direction == "R") {
+        // Move the snake
+        snake.push(head);
 
+        // Check for collision with apple
+        if (head[0] === apple[0] && head[1] === apple[1]) {
+            rdApple(); // Generate a new apple
+        } else {
+            snake.shift(); // Remove the tail if no apple is eaten
         }
+
+        displaySnake(); // Update the display
     }
 
-
+    function gameLoop() {
+        moveSnake();
+        console.log(snake);
+    }
+});
