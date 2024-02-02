@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Formulaire de Vérification</title>
+</head>
+<body>
+
+<form id="monFormulaire">
+    <h2>Etape 1: Identité</h2>
+    <div class="etape">
+        <label>Civilité:</label>
+        <div class="radio-group">
+            <div>
+                <input type="radio" id="monsieur" name="civility" value="Monsieur" required>
+                <label for="monsieur">Monsieur</label>
+            </div>
+            <div>
+                <input type="radio" id="madame" name="civility" value="Madame" required>
+                <label for="madame">Madame</label>
+            </div>
+        </div>
+
+        <div>
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" placeholder="Champs obligatoire" required>
+        </div>
+
+        <div>
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="prenom" placeholder="Champs obligatoire" required>
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="exemple@domaine.com">
+        </div>
+
+        <div>
+            <label for="telephone">Téléphone:</label>
+            <input type="tel" id="telephone" name="telephone" placeholder="ex: +33 00 00 00 00">
+        </div>
+    </div>
+
+    <h2>Etape 2: Adresse</h2>
+    <div class="etape">
+        <div>
+            <label for="adresse">Adresse:</label>
+            <textarea id="adresse" name="adresse"></textarea>
+        </div>
+
+        <div>
+            <label for="codePostal">Code Postal:</label>
+            <input type="text" id="codePostal" name="codePostal" required>
+        </div>
+
+        <div>
+            <label for="ville">Ville:</label>
+            <input type="text" id="ville" name="ville" required>
+        </div>
+    </div>
+
+    <h2>Etape 3: Carte Bancaire</h2>
+    <div class="etape">
+        <div>
+            <label for="typeCarte">Type de Carte Bancaire:</label>
+            <select id="typeCarte" name="typeCarte" required>
+                <option value="Visa">Visa</option>
+                <option value="AmEx">AmEx</option>
+                <option value="Mastercard">Mastercard</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="numeroCarte">Numéro de Carte:</label>
+            <input type="text" id="numeroCarte" name="numeroCarte" required>
+        </div>
+
+        <div>
+            <label for="codeSecurite">Code de Sécurité:</label>
+            <input type="text" id="codeSecurite" name="codeSecurite" required>
+        </div>
+    </div>
+
+    <center><button type="button" onclick="verifierFormulaire()">Valider</button></center>
+</form>
+
+<script src="script.js"></script>
+</body>
+</html>

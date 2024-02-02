@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+form {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #BFC9CA;
+    border-radius: 10px;
+}
+
+.etape {
+    background-color: #D2D9DA;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+
+h2 {
+    color: #475214;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.radio-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.radio-group div {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+label {
+    display: block;
+    padding-top: 15px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+button {
+    background-color: #475214;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #384313;
+}
