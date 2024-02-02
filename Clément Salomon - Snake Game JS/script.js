@@ -1,5 +1,3 @@
-// TODO :
-// - dégradé du serpent de la tête à la queue
 
 // ---------------------------------------
 // |              VARIABLES              |
@@ -44,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ----------------------------------------
     const grid = document.querySelector(".grid");
     createGrid();
+    displaySnake();
     rdApple();
     gameInterval = setInterval(gameLoop, 75);
 
@@ -95,14 +94,19 @@ document.addEventListener("DOMContentLoaded", function () {
         const randomRow = Math.floor(Math.random() * 20);
         const randomCol = Math.floor(Math.random() * 30);
         const randomCell = document.getElementById("cell-" + randomRow + "-" + randomCol);
-        randomCell.classList.add("apple");
-        if (apple.length === 2) {
-            const previousApple = document.getElementById("cell-" + apple[0] + "-" + apple[1]);
-            previousApple.classList.remove("apple");
+        if( !(randomCell.classList.contains("snake-head")) || !(randomCell.classList.contains("snake-body")) ) {
+            randomCell.classList.add("apple");
+            if (apple.length === 2) {
+                const previousApple = document.getElementById("cell-" + apple[0] + "-" + apple[1]);
+                previousApple.classList.remove("apple");
+            }
+            apple = [randomRow, randomCol];
+            const score = document.getElementById("score");
+            score.textContent = (snake.length - 3).toString();
         }
-        apple = [randomRow, randomCol];
-        const score = document.getElementById("score");
-        score.textContent = (snake.length - 3).toString();
+        else {
+            rdApple();
+        }
     }
 
     function moveSnake() {
