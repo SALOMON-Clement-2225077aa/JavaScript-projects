@@ -1,19 +1,17 @@
 import Observable from './observable.js';
-import { Logger, Logger2, Logger3 } from './logger.js';
-import { switchTab, displayNextValue, changeLabel } from './utils.js';
+import { Logger1, Logger2, Logger3 } from './logger.js';
 
 // Lancer l'application
 async function start() {
 
     await observable.start();
 
-    displayNextValue();
     switchTab(1);
 }
 
 // Main()
 const observable = new Observable();
-const logger1 = new Logger();
+const logger1 = new Logger1();
 const logger2 = new Logger2();
 const logger3 = new Logger3();
 

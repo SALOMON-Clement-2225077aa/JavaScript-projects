@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le thermomètre</title>
     <script defer src="./jsFiles/Main.js" type="module"></script>
+    <script src="./jsFiles/utils.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <!-- Les onglets -->
 <div role="tablist" aria-label="Système d'onglets">
-    <button class="tab-button" role="tab" aria-selected="true" aria-controls="tab-content-1" onclick="switchTab(1)">Historique des données</button>
-    <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-content-2" onclick="switchTab(2)">Page 2</button>
+    <button class="tab-button" role="tab" aria-selected="true" aria-controls="tab-content-1" onclick="switchTab(1)">Température actuelle</button>
+    <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-content-2" onclick="switchTab(2)">Historique des données</button>
     <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-content-3" onclick="switchTab(3)">Page 3</button>
 </div>
 

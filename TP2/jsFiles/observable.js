@@ -1,6 +1,17 @@
 class Observable {
     constructor() {
-        this.observers = [];
+        this.A_loggers = [];
+    }
+
+    start() {
+        setInterval(async () => {
+            const data = await this.fetchData();
+            if (data !== null) {
+                this.notify(data);
+            } else {
+                console.log('Failed to fetch data from API');
+            }
+        }, 2000);
     }
 
     async fetchData() {
@@ -23,19 +34,8 @@ class Observable {
         }
     }
 
-    async start() {
-        const data = await this.fetchData();
-        if (data) {
-            console.log('Data from API:', data);
-            // Notify observers with the fetched data
-            this.notify(data);
-        } else {
-            console.log('Failed to fetch data from API');
-        }
-    }
-
     subscribe(observer) {
-        this.observers.push(observer);
+        this.A_loggers.push(observer);
     }
 
     unsubscribe(observer) {
@@ -43,7 +43,7 @@ class Observable {
     }
 
     notify(data) {
-        this.observers.forEach((observer) => observer.update(data));
+        this.A_loggers.forEach((observer) => observer.update(data));
     }
 }
 
