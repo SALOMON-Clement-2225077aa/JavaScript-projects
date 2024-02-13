@@ -11,9 +11,12 @@
 
 <section>
     <h1>Le thermomètre :</h1>
-    <h3 id="message"> </h3>
-    <div id="currentTemperature"></div>
-    <div id="temperatureList"></div>
+    <region id="currentTemperature" aria-live="polite">
+        <h2 id="temperatureHeading" aria-live="off">Température actuelle :</h2>
+        <span id="temperatureValue" aria-labelledby="temperatureHeading"></span>
+    </region>
+    <h3 id="message" aria-live="assertive"></h3>
+    <div id="temperatureList" role="list" aria-label="Historique des températures"></div>
 </section>
 
 </body>
