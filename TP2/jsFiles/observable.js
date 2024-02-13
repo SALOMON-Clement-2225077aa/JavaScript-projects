@@ -1,6 +1,6 @@
 class Observable {
     constructor() {
-        this.A_loggers = [];
+        this.A_observers = [];
     }
 
     start() {
@@ -35,15 +35,15 @@ class Observable {
     }
 
     subscribe(observer) {
-        this.A_loggers.push(observer);
+        this.A_observers.push(observer);
     }
 
     unsubscribe(observer) {
-        // TODO: Implement unsubscribe logic
+        this.A_observers = this.A_observers.filter(obs => obs !== observer);
     }
 
     notify(data) {
-        this.A_loggers.forEach((observer) => observer.update(data));
+        this.A_observers.forEach((observer) => observer.update(data));
     }
 }
 

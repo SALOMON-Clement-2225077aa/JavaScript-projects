@@ -8,10 +8,10 @@ class Logger1 {
 
     changeLabel(I_currentTemperature) {
         EL_message.textContent = "";
-        if (I_currentTemperature <= 0) {
+        if (I_currentTemperature < 0) {
             EL_message.textContent = "Brrrrrrr, un peu froid ce matin, mets ta cagoule !";
         }
-        else if (I_currentTemperature <= 40) {
+        else if (I_currentTemperature > 30) {
             EL_message.textContent = "Caliente ! Vamos a la playa, ho hoho hoho !!";
         }
     }
