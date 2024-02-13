@@ -7,9 +7,59 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #c4a3da;
 }
 
+/*
+    -------------
+    Les onglets :
+*/
+.tab {
+    display: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+.tab.active {
+    display: block;
+}
+.tab-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.tab-button.active {
+    background-color: #ddd;
+}
+
+
+/*
+    --------------------------
+    Affichage des températures
+ */
+#currentTemperature {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+#temperatureList {
+    text-align: center;
+}
+#listeDegres {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+/*
+    -------------------------
+    Couleurs des températures
+ */
 .blue-border {
     border: 2px solid blue;
     background-color: lightblue;
@@ -25,25 +75,4 @@ body {
 .red-border {
     border: 2px solid red;
     background-color: tomato;
-}
-
-#currentTemperature {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-#temperatureList {
-    text-align: center;
-}
-
-#listeDegres {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 18px;
 }

@@ -8,15 +8,32 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<!-- Les onglets -->
+<div role="tablist" aria-label="Système d'onglets">
+    <button class="tab-button" role="tab" aria-selected="true" aria-controls="tab-content-1" onclick="switchTab(1)">Historique des données</button>
+    <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-content-2" onclick="switchTab(2)">Page 2</button>
+    <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-content-3" onclick="switchTab(3)">Page 3</button>
+</div>
 
-<section>
+<!-- Page 1 -->
+<section id="tab-content-1" class="tab active" role="tabpanel" aria-labelledby="tab-button-1">
     <h1>Le thermomètre :</h1>
     <region id="currentTemperature" aria-live="polite">
         <h2 id="temperatureHeading" aria-live="off">Température actuelle :</h2>
         <span id="temperatureValue" aria-labelledby="temperatureHeading"></span>
     </region>
-    <h3 id="message" aria-live="assertive"></h3>
+    <h3 id="message" aria-live="assertive" role="alert"></h3>
     <div id="temperatureList" role="list" aria-label="Historique des températures"></div>
+</section>
+
+<!-- Page 2 -->
+<section id="tab-content-2" class="tab active" role="tabpanel" aria-labelledby="tab-button-2">
+    <h1>Page 2</h1>
+</section>
+
+<!-- Page 3 -->
+<section id="tab-content-3" class="tab active" role="tabpanel" aria-labelledby="tab-button-3">
+    <h1>Page 3</h1>
 </section>
 
 </body>
