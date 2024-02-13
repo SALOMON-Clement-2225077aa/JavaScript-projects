@@ -1,5 +1,7 @@
 import Observable from './observable.js';
-import { Logger1, Logger2, Logger3 } from './logger.js';
+import {Logger1} from './loggers/logger1.js';
+import {Logger2} from './loggers/logger2.js';
+import {Logger3} from './loggers/logger3.js';
 
 // Lancer l'application
 async function start() {

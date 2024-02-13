@@ -23,7 +23,7 @@ class Observable {
             const data = await response.json();
             if (data && data.capteurs && data.capteurs.length > 0) {
                 const { type, Nom, Valeur, Timestamp } = data.capteurs[0];
-                return Valeur;
+                return { type, Nom, Valeur, Timestamp };
             } else {
                 throw new Error('No data or invalid data format in response');
             }

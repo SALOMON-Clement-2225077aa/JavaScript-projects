@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le thermomètre</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script defer src="./jsFiles/Main.js" type="module"></script>
     <script src="./jsFiles/utils.js"></script>
     <link rel="stylesheet" href="styles.css">
@@ -29,7 +30,8 @@
 
 <!-- Page 2 -->
 <section id="tab-content-2" class="tab active" role="tabpanel" aria-labelledby="tab-button-2">
-    <h1>Page 2</h1>
+    <h1>Historique des données :</h1>
+    <canvas id="temperatureChart" style="width:100%;max-width:700px"></canvas>
 </section>
 
 <!-- Page 3 -->

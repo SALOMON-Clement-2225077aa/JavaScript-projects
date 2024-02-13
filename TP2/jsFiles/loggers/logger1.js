@@ -17,8 +17,8 @@ class Logger1 {
     }
 
     update(data) {
-        if(data != this.I_currentTemperature) {
-            this.I_currentTemperature = data;
+        if(data.Valeur != this.I_currentTemperature) {
+            this.I_currentTemperature = data.Valeur;
 
             this.changeLabel(this.I_currentTemperature);
             EL_currentTemperatureElement.innerHTML = "Température actuelle : " + this.I_currentTemperature + "<abbr>°C</abbr>";
@@ -35,16 +35,4 @@ class Logger1 {
     }
 }
 
-class Logger2 {
-    update(data) {
-        console.log(data + ' Logger 2');
-    }
-}
-
-class Logger3 {
-    update(data) {
-        console.log(data + ' Logger 3');
-    }
-}
-
-export { Logger1, Logger2, Logger3 };
+export { Logger1 };
