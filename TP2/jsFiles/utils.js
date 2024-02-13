@@ -1,11 +1,11 @@
-<!-- Les Variables -->
+// Les Variables
 let A_tableau = Array.from({ length: 20000 }, () => Math.floor(Math.random() * (40 - -10 + 1)) + -10);
 let I_index = 0;
 const EL_currentTemperatureElement = document.getElementById("currentTemperature");
 const EL_temperatureListElement = document.getElementById("temperatureList");
 const EL_message= document.getElementById("message");
 
-<!-- Les Fonctions -->
+// Les Fonctions
 function switchTab(tabIndex) {
     // Cacher tous les onglets
     var tabs = document.querySelectorAll('.tab');
@@ -55,7 +55,4 @@ function changeLabel(I_currentTemperature) {
     }
 }
 
-
-<!-- Le Main() -->
-displayNextValue();
-switchTab(1);
+export { switchTab, displayNextValue, changeLabel };
