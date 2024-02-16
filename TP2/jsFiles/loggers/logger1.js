@@ -23,14 +23,27 @@ class Logger1 {
             this.changeLabel(this.I_currentTemperature);
             EL_currentTemperatureElement.innerHTML = "Température actuelle : " + this.I_currentTemperature + "<abbr>°C</abbr>";
             let el = document.createElement('div');
-            el.innerHTML = this.I_currentTemperature+"<abbr>°C<abbr>";
+            if (this.I_currentTemperature.toString().length < 4 ) {
+                el.innerHTML = "<b>&nbsp;&nbsp;"+this.I_currentTemperature+"<abbr>°C<abbr>&nbsp</b> - "+new Date(data.Timestamp * 1000).toLocaleTimeString();
+            } else {
+                el.innerHTML = "<b>"+this.I_currentTemperature+"<abbr>°C<abbr></b> - "+new Date(data.Timestamp * 1000).toLocaleTimeString();
+            }
 
             if (this.I_currentTemperature <= 0) el.classList.add("blue-border");
             else if (this.I_currentTemperature <= 20) el.classList.add("green-border");
             else if (this.I_currentTemperature <= 30) el.classList.add("orange-border");
             else if (this.I_currentTemperature <= 40) el.classList.add("red-border");
 
-            EL_temperatureListElement.appendChild(el);
+            // [Update] Insert the new temperature at the top of the list instead :
+            EL_temperatureListElement.insertBefore(el, EL_temperatureListElement.firstChild);
+            if (EL_temperatureListElement.children.length > 10) {
+                EL_temperatureListElement.removeChild(EL_temperatureListElement.lastChild);
+            }
+            EL_temperatureListElement.firstChild.classList.add("first-element");
+            if (EL_temperatureListElement.children.length > 1
+                && EL_temperatureListElement.children[1].classList.contains("first-element")) {
+                EL_temperatureListElement.children[1].classList.remove("first-element");
+            }
         }
     }
 }

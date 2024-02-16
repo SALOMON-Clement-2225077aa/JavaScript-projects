@@ -22,6 +22,9 @@ const logger3 = new Logger3();
 let localData = observable.readDataLocally()
 if(localData != null) {
     localData.forEach(data => {
+        logger1.update(data['capteurs'][0]);
+    });
+    localData.forEach(data => {
         logger2.update(data['capteurs'][0]);
     });
 }
