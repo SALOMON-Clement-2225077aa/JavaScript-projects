@@ -7,15 +7,24 @@ import {Logger3} from './loggers/logger3.js';
 async function start() {
 
     await observable.start();
-
     switchTab(1);
 }
 
 // Main()
 const observable = new Observable();
+
+// Création des listeners :
 const logger1 = new Logger1();
 const logger2 = new Logger2();
 const logger3 = new Logger3();
+
+// Ajout des données local (si elles existent) :
+let localData = observable.readDataLocally()
+if(localData != null) {
+    localData.forEach(data => {
+        logger2.update(data['capteurs'][0]);
+    });
+}
 
 observable.subscribe(logger1);
 observable.subscribe(logger2);

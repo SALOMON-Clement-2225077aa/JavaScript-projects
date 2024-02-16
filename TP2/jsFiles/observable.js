@@ -51,6 +51,17 @@ class Observable {
         }
     }
 
+    readDataLocally() {
+        try {
+            const jsonData = localStorage.getItem('temperatureData');
+            const data = JSON.parse(jsonData);
+            console.log('Data read from localStorage:', data);
+            return data;
+        } catch (error) {
+            console.error('No data found in localStorage:', error);
+            return null;
+        }
+    }
 
 
     subscribe(observer) {

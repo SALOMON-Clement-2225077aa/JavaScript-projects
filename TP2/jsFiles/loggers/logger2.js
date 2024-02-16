@@ -1,4 +1,5 @@
 class Logger2 {
+
     constructor() {
         this.chart = this.createChart();
     }
