@@ -15,7 +15,7 @@ class Logger3 {
     I_averageTemperature = 0;
 
     softUpdate(data) {
-        let I_currentTemperature = parseInt(data.Valeur);
+        let I_currentTemperature = parseFloat(data.Valeur);
         let D_currentDate = new Date(data.Timestamp * 1000).toLocaleTimeString();
         this.I_apiCalls += 1;
         this.I_sumOfTemperature += I_currentTemperature;
