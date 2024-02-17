@@ -14,7 +14,7 @@
 <div role="tablist" aria-label="Système d'onglets">
     <button class="tab-button" role="tab" aria-selected="true" aria-controls="tab-content-1" onclick="switchTab(1)">Température actuelle</button>
     <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-content-2" onclick="switchTab(2)">Historique des données</button>
-    <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-content-3" onclick="switchTab(3)">Page 3</button>
+    <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-content-3" onclick="switchTab(3)">Mon compte</button>
 </div>
 
 <!-- Page 1 -->
@@ -36,7 +36,14 @@
 
 <!-- Page 3 -->
 <section id="tab-content-3" class="tab active" role="tabpanel" aria-labelledby="tab-button-3">
-    <h1>Page 3</h1>
+    <h1>Mon compte</h1>
+    <ul>
+        <li id="minTemperature">Température minimale enregistré : </li>
+        <li id="maxTemperature">Température maximale enregistré : </li>
+        <li id="averageTemperature">Moyenne des températures : </li>
+        <li id="apiCalls">Nombre d'appel d'API effectué : </li>
+        <li id="collectTime">Temps de collecte : </li>
+    </ul>
 </section>
 
 </body>

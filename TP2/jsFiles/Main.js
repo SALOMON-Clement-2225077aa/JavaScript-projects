@@ -27,6 +27,9 @@ if(localData != null) {
     localData.forEach(data => {
         logger2.update(data['capteurs'][0]);
     });
+    localData.forEach(data => {
+        logger3.softUpdate(data['capteurs'][0]);
+    });
 }
 
 observable.subscribe(logger1);
