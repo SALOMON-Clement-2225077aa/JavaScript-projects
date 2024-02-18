@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le thermomètre</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script defer src="./jsFiles/Main.js" type="module"></script>
+    <script src="./jsFiles/utils.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Les onglets -->
+<div role="tablist" aria-label="Système d'onglets">
+    <button class="tab-button" role="tab" aria-selected="true" aria-controls="tab-content-1" onclick="switchTab(1)">Température actuelle</button>
+    <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-content-2" onclick="switchTab(2)">Historique des données</button>
+    <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-content-3" onclick="switchTab(3)">Mon compte</button>
+</div>
+
+<!-- Page 1 -->
+<section id="tab-content-1" class="tab active" role="tabpanel" aria-labelledby="tab-button-1">
+    <h1>Le thermomètre :</h1>
+    <!-- TEMPLATE -->
+    <template id="temperature-template">
+        <div class="temperature-info">
+            <h2 id="temperature-heading" aria-live="off">Température actuelle :</h2>
+            <span id="temperature-value" aria-labelledby="temperature-heading"></span>
+            <p id="temperature-timestamp">Date et heure : --</p>
+        </div>
+    </template>
+    <!------------->
+    <region id="currentTemperature" aria-live="polite"></region>
+    <h3 id="message" aria-live="assertive" role="alert"></h3>
+    <div id="temperatureList" role="list" aria-label="Historique des températures"></div>
+</section>
+
+<!-- Page 2 -->
+<section id="tab-content-2" class="tab active" role="tabpanel" aria-labelledby="tab-button-2">
+    <h1>Historique des données :</h1>
+    <canvas id="temperatureChart" style="width:100%;max-width:700px"></canvas>
+</section>
+
+<!-- Page 3 -->
+<section id="tab-content-3" class="tab active" role="tabpanel" aria-labelledby="tab-button-3">
+    <h1>Mon compte</h1>
+    <ul>
+        <li id="minTemperature">Température minimale enregistré : </li>
+        <li id="maxTemperature">Température maximale enregistré : </li>
+        <li id="averageTemperature">Moyenne des températures : </li>
+        <li id="apiCalls">Nombre d'appel d'API effectué : </li>
+        <li id="collectTime">Temps de collecte : </li>
+    </ul>
+</section>
+
+</body>
+</html>
